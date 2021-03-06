@@ -105,3 +105,18 @@
 .challengeActive footer button:hover {
   filter: brightness(0.9);
 }
+
+@media only screen and (min-width: 600px) and (max-width: 800px) {
+  .challengeBoxContainer {
+    height: 85%;
+  }
+
+  .challengeActive main strong {
+    font-size: 1.5rem;
+  }
+
+  .challengeActive main p {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+}
