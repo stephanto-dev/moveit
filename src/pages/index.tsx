@@ -4,7 +4,6 @@ import { ExperienceBar } from "../components/ExperienceBar";
 import { Profile } from "../components/Profile";
 import { ChallengeBox } from "../components/ChallengeBox";
 import { ContextCountdownProvider } from "../contexts/CountdownContext";
-import { SetNotification } from "../components/SetNotification";
 import { ChallengesProvider } from "../contexts/ChallengesContext";
 
 import Head from 'next/head';
@@ -34,7 +33,6 @@ export default function Home(props: HomeProps) {
         <ExperienceBar/>
 
       <ContextCountdownProvider>
-        {/* <SetNotification/> */}
         <section>
           <div>
             <Profile/>

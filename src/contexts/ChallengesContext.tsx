@@ -2,6 +2,7 @@ import Cookies from 'js-cookie';
 import {createContext, useState, ReactNode, useEffect} from 'react';
 import challenges from '../../challenges.json';
 import { LevelUpModal } from '../components/LevelUpModal';
+import { NotificationModal } from '../components/NotificationModal';
 
 interface ChallengesProviderProps{
   children: ReactNode;
@@ -28,6 +29,7 @@ interface ChallengesContextData{
   resetChallenge: () => void;
   completeChallenge: () => void;
   closeLevelUpModal: () => void;
+  closeNotificationModal: () => void;
 }
 
 export const ChallengesContext = createContext({} as ChallengesContextData);
@@ -40,12 +42,20 @@ export function ChallengesProvider({children, ...rest}: ChallengesProviderProps)
 
   const [activeChallenge,setActiveChallenge] = useState(null);
   const [isLevelUpModalOpen, setIsLevelUpModalOpen] = useState(false);
+  const [isNotificationModalOpen, setIsNotificationModalOpen] = useState(true);
 
   const experienceToNextLevel= Math.pow((level+1)*4,2);
 
   useEffect(()=>{
-    Notification.requestPermission();
+    Notification.requestPermission().then(permission => {
+      if(permission === 'default'){
+        setIsNotificationModalOpen(true);
+      }else{
+        setIsNotificationModalOpen(false);
+      }
+    })
   },[]);
+
 
   useEffect(()=>{
     Cookies.set('level', String(level));
@@ -61,6 +71,10 @@ export function ChallengesProvider({children, ...rest}: ChallengesProviderProps)
 
   function closeLevelUpModal(){
     setIsLevelUpModalOpen(false);
+  }
+
+  function closeNotificationModal(){
+    setIsNotificationModalOpen(false);
   }
 
   function startNewChallenge(){
@@ -114,11 +128,13 @@ export function ChallengesProvider({children, ...rest}: ChallengesProviderProps)
       resetChallenge,
       experienceToNextLevel,
       completeChallenge,
-      closeLevelUpModal
+      closeLevelUpModal,
+      closeNotificationModal
       }}>
       {children}
 
       { isLevelUpModalOpen && <LevelUpModal/>}
+      {isNotificationModalOpen && <NotificationModal/>}
     </ChallengesContext.Provider>
   )
 }
