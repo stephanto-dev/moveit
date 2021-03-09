@@ -1,0 +1,83 @@
+.container {
+  background: #fff;
+  width: 4rem;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.container a {
+  height: 90%;
+  width: 90%;
+  margin-top: 10rem;
+  filter: contrast(0%);
+  transition: filter 0.2s;
+}
+
+.container a:hover {
+  filter: contrast(100%);
+  transition: filter 0.2s;
+}
+
+.navbar a img {
+  height: 60%;
+  width: 60%;
+
+  margin-top: 1rem;
+
+  filter: contrast(0%);
+  transition: filter 0.2s;
+}
+
+.navbar a img:hover {
+  filter: contrast(100%);
+  transition: filter 0.2s;
+}
+
+.logo img {
+  margin-top: -60%;
+}
+
+.themeBtn {
+  background: none;
+  border: 0;
+  font-size: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.themeBtnImgActive {
+  width: 120%;
+  height: 120%;
+
+  filter: contrast(100%);
+  transition: filter 0.2s;
+}
+
+.themeBtnImgDisable {
+  width: 120%;
+  height: 120%;
+
+  filter: contrast(0%);
+  transition: filter 0.2s;
+}
+
+.themeBtn img:hover {
+  filter: contrast(100%);
+  transition: filter 0.2s;
+}
+
+@media only screen and (max-width: 350px) {
+  .container {
+    width: 3rem;
+  }
+
+  .logoImg {
+    width: 110%;
+    height: 110%;
+  }
+}

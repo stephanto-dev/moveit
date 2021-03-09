@@ -10,7 +10,10 @@ import Head from 'next/head';
 import {GetServerSideProps} from 'next';
 import React from "react";
 
+
 import styles from '../styles/pages/Home.module.css';
+import { Sidebar } from "../components/Sidebar";
+
 
 
 interface HomeProps{
@@ -26,14 +29,20 @@ export default function Home(props: HomeProps) {
     currentExperience = {props.currentExperience}
     challengesCompleted ={props.challengesCompleted}
     >
+      <div className={styles.sidebar}>
+          <Sidebar/>
+      </div>
       <div className={styles.container}>
         <Head>
           <title>Início | Move.it</title>
         </Head>
-        <ExperienceBar/>
+        
+      <ExperienceBar/>
 
       <ContextCountdownProvider>
+
         <section>
+
           <div>
             <Profile/>
             <CompletedChallenges/>
