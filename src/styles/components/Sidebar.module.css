@@ -1,5 +1,5 @@
-.container {
-  background: #fff;
+/* .container {
+  background: var(--white);
   width: 4rem;
   height: 100vh;
   justify-content: center;
@@ -7,9 +7,9 @@
   text-align: center;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
-}
+} */
 
-.container a {
+.logout a {
   height: 90%;
   width: 90%;
   margin-top: 10rem;
@@ -17,7 +17,7 @@
   transition: filter 0.2s;
 }
 
-.container a:hover {
+.logout a:hover {
   filter: contrast(100%);
   transition: filter 0.2s;
 }

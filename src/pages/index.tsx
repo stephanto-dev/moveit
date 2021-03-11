@@ -6,6 +6,7 @@ import { ChallengeBox } from "../components/ChallengeBox";
 import { ContextCountdownProvider } from "../contexts/CountdownContext";
 import { ChallengesProvider } from "../contexts/ChallengesContext";
 
+
 import Head from 'next/head';
 import {GetServerSideProps} from 'next';
 import React from "react";
@@ -13,7 +14,6 @@ import React from "react";
 
 import styles from '../styles/pages/Home.module.css';
 import { Sidebar } from "../components/Sidebar";
-
 
 
 interface HomeProps{
