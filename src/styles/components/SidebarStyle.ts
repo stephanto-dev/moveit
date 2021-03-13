@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-background: ${props => props.theme.color.background};
+background: var(--white);
 width: 4rem;
 height: 100vh;
 justify-content: center;

@@ -1,15 +1,13 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "styled-components";
-import useToggleTheme from "../hooks/useToggleTheme";
 import styles from '../styles/components/Sidebar.module.css';
 import {Container} from '../styles/components/SidebarStyle';
 
 
 
-export function Sidebar(){
+export function Sidebar({toggleTheme}) : JSX.Element{
 
   const {title} = useContext(ThemeContext);
-  const {toggleTheme} = useToggleTheme();
 
   return (
     <Container>
